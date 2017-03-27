@@ -1,0 +1,43 @@
+<div class="top-30 container">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img [src]="artista?.images | showImage" class="img-thumbnail img-circle" >
+    </div>
+    <div class="col-md-9">
+      <h3>{{artista?.name}} <small>Popularidad {{artista?.popularity}}</small></h3>
+      <hr>
+      <a [href]="artista?.external_urls?.spotify" class="btn btn-outline-success">Ver página</a>
+      <a [routerLink]="['/search']" class="btn btn-outline-danger">Regresar</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="tracks">
+  <h3>Top tracks de {{artista?.name}}</h3>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Foto</th>
+              <th>Canción</th>
+              <th>Popularidad</th>
+              <th>Preview</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let track of tracks; let i = index;">
+              <td>{{i+1}}</td>
+              <td><img [src]="track.album?.images | showImage" class="img-fluid img-50" alt=""></td>
+              <td>{{track.name}}</td>
+              <td class="text-center">{{track.popularity}}</td>
+              <td><audio [src]="track.preview_url" controls ></audio></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

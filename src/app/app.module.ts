@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ShowImagePipe } from './pipes/showImage/show-image.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ShowImagePipe } from './pipes/showImage/show-image.pipe';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    ShowImagePipe
+    ShowImagePipe,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
